@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
-import { motion, useInView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
