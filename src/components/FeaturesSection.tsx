@@ -1,7 +1,7 @@
 
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { Github, Cpu, Database, Wifi, Server, ActivitySquare, BarChart3, Chip } from 'lucide-react';
+import { Github, Cpu, Database, Wifi, Server, ActivitySquare, BarChart3, CircuitBoard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -12,7 +12,7 @@ const features = [
     description: "Low-power mesh network with self-healing capabilities for reliable data transmission."
   },
   {
-    icon: Chip,
+    icon: CircuitBoard,
     title: "Advanced Sensing Technology",
     description: "Multi-parameter sensors for comprehensive infrastructure monitoring."
   },
