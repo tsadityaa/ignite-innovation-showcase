@@ -2,51 +2,63 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
     quote: "This team has developed one of the most innovative IoT solutions I've seen in years. Their technical implementation is both elegant and robust.",
     author: "Dr. Sarah Johnson",
     title: "Professor of Computer Science, Technical University",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80"
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80",
+    rating: 5
   },
   {
     quote: "The market potential for this technology is immense. Their solution addresses a critical gap in urban infrastructure management that has global applications.",
     author: "Mark Thompson",
     title: "Managing Partner, Tech Ventures Capital",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80"
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80",
+    rating: 5
   },
   {
     quote: "What impressed our judging panel most was the team's deep understanding of both the technical challenges and the business model. A well-deserved first place.",
     author: "Dr. Lisa Chen",
     title: "Lead Judge, National Innovation Challenge",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80"
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80",
+    rating: 5
   }
 ];
 
+// Star rating component
+const StarRating = ({ rating }: { rating: number }) => {
+  return (
+    <div className="flex items-center gap-1 text-yellow-400 mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star
+          key={i}
+          className={cn(
+            "h-5 w-5",
+            i < rating ? "fill-yellow-400" : "fill-gray-200"
+          )}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
 
   return (
     <section id="testimonials" className="bg-gradient-to-br from-brand-800 to-brand-900 py-20 md:py-32 text-white">
@@ -68,74 +80,60 @@ export default function TestimonialsSection() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-4xl mx-auto relative"
+          className="max-w-6xl mx-auto"
         >
-          <div className="absolute -top-16 left-1/2 -translate-x-1/2 text-brand-300/20">
-            <Quote className="w-32 h-32" />
-          </div>
-
-          <div className="relative overflow-hidden min-h-[300px] flex items-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -50 }}
-                transition={{ duration: 0.5 }}
-                className="text-center"
-              >
-                <p className="text-xl md:text-2xl font-medium text-white/90 mb-8 relative z-10">
-                  "{testimonials[current].quote}"
-                </p>
-                <div className="flex flex-col items-center">
-                  <img
-                    src={testimonials[current].image}
-                    alt={testimonials[current].author}
-                    className="w-16 h-16 rounded-full border-2 border-brand-300 mb-4 object-cover"
-                  />
-                  <div className="text-center">
-                    <h4 className="font-semibold text-lg text-white">
-                      {testimonials[current].author}
-                    </h4>
-                    <p className="text-brand-300">
-                      {testimonials[current].title}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <div className="flex justify-center mt-10 space-x-4">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <div className="flex items-center space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrent(index)}
-                  className={cn(
-                    "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                    current === index
-                      ? "bg-white w-8"
-                      : "bg-white/30 hover:bg-white/50"
-                  )}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="bg-white/10 backdrop-blur-sm border-white/20 shadow-xl">
+                    <CardContent className="flex flex-col p-6">
+                      <div className="absolute -top-4 left-6 text-brand-300">
+                        <Quote className="w-8 h-8" />
+                      </div>
+                      <div className="pt-4">
+                        <StarRating rating={testimonial.rating} />
+                        <p className="text-white/90 mb-6 text-sm md:text-base">
+                          "{testimonial.quote}"
+                        </p>
+                        <div className="flex items-center mt-auto pt-4 border-t border-white/10">
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.author}
+                            className="w-12 h-12 rounded-full border-2 border-brand-300 mr-4 object-cover"
+                          />
+                          <div>
+                            <h4 className="font-semibold text-white">
+                              {testimonial.author}
+                            </h4>
+                            <p className="text-brand-300 text-sm">
+                              {testimonial.title}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
               ))}
+            </CarouselContent>
+            <div className="flex justify-center gap-4 mt-8">
+              <CarouselPrevious className="relative static md:absolute left-0 bg-brand-500 hover:bg-brand-600 text-white border-none" />
+              <CarouselNext className="relative static md:absolute right-0 bg-brand-500 hover:bg-brand-600 text-white border-none" />
             </div>
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+          </Carousel>
+
+          {/* Mobile indicators */}
+          <div className="md:hidden flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <div
+                key={index}
+                className={cn(
+                  "w-2 h-2 rounded-full transition-all duration-300",
+                  index === 0 ? "bg-white w-4" : "bg-white/30"
+                )}
+              />
+            ))}
           </div>
         </motion.div>
       </div>
