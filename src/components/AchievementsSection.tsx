@@ -5,27 +5,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 
+
 const achievements = [
   {
-    image: "https://images.unsplash.com/photo-1605499596043-20fc8dfe54c7?auto=format&fit=crop&w=1200&q=80",
-    title: "1st Prize at National Hackathon",
+    image: "/prize.jpg",
+    title: "Stood top among 519 projects at VIT-AP",
     description: "Our team won the national IoT hackathon, competing against 200+ teams from across the country.",
     year: "2023"
   },
   {
-    image: "https://images.unsplash.com/photo-1574607383476-1b1ec3296cf4?auto=format&fit=crop&w=1200&q=80",
+    image: "/patent.jpg",
     title: "Patent Publication",
     description: "Our solution's unique architecture and algorithms have been filed for patent (Publication No. 2023/xxxxxx).",
     year: "2023"
   },
   {
-    image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80",
+    image: "/wad.jpg",
     title: "Incubation at Tech Foundation",
     description: "Selected among top 5 startups for incubation program with funding and mentorship.",
     year: "2022"
   },
   {
-    image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1200&q=80",
+    image: "/market.jpg",
     title: "Business Plan Competition Winner",
     description: "Awarded best business model at the University Entrepreneurship Summit.",
     year: "2022"

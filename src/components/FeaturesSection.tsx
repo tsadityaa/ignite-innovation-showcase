@@ -8,48 +8,66 @@ import { cn } from '@/lib/utils';
 const features = [
   {
     icon: Wifi,
-    title: "Wireless Sensor Network",
-    description: "Low-power mesh network with self-healing capabilities for reliable data transmission."
+    title: "Real-time Obstacle Detection",
+    description: "Multi-threaded ultrasonic sensors detect obstacles and enqueue priority instructions for navigation."
   },
   {
     icon: CircuitBoard,
-    title: "Advanced Sensing Technology",
-    description: "Multi-parameter sensors for comprehensive infrastructure monitoring."
+    title: "Latency-Optimized Audio Alerts",
+    description: "Messages processed via a priority queue and converted to speech using eSpeak with low-latency \"cheat codes\"."
   },
   {
     icon: ActivitySquare,
-    title: "Real-time Analytics",
-    description: "Edge computing system for instant analysis and alert generation."
+    title: "Emergency Reporting via Telegram API",
+    description: "Automatically notifies emergency contacts through Telegram during critical events."
   },
   {
     icon: BarChart3,
-    title: "Predictive Maintenance",
-    description: "ML algorithms for failure prediction and maintenance optimization."
+    title: "Surface Type Detection with IR Sensors",
+    description: "Uses IR reflection patterns to identify floor-type changes like stairs or uneven terrain."
+  },
+  {
+    icon: BarChart3,
+    title: "Gait Analysis through Pressure Sensors",
+    description: "Uses IR reflection patterns to identify floor-type changes like stairs or uneven terrain."
+  },
+  {
+    icon: BarChart3,
+    title: "Self-Charging Footwear with Piezoelectric Pads",
+    description: " Generates power from foot pressure using embedded piezoelectric materials — no external battery needed."
   }
+
 ];
 
 const techStack = [
   {
     title: "Hardware Stack",
     items: [
-      "ESP32 Microcontrollers",
-      "Custom PCB Design",
-      "LoRaWAN Communication",
-      "Various Environmental Sensors",
-      "Solar Power Integration",
-      "Custom Enclosures (IP67)"
-    ]
+      "Raspberry Pi 3 Model B+",
+      "VL53L0X Time-of-Flight Distance Sensor",
+      "TCRT5000 Reflective Optical Sensor",
+      "FSR (Force Sensitive Resistor)",
+      "Neo-6M GPS Module",
+      "Ultrasonic Sensor (HC-SR04)",
+      "Servo Motor (for scanning with the ultrasonic sensor)",
+      "Buzzer",
+      "Push Button",
+      "Telebot (Telegram bot) setup"
+  ]
   },
   {
     title: "Software Stack",
     items: [
-      "Node.js & Express Backend",
-      "React Frontend",
-      "MongoDB/TimescaleDB",
-      "TensorFlow for ML Models",
-      "MQTT Protocol",
-      "AWS Cloud Infrastructure"
-    ]
+      "Raspbian OS",
+      "Python 3",
+      "RPi.GPIO",
+      "Telebot",
+      "Threading",
+      "Gps",
+      "Subprocess",
+      "Geopy",
+      "Signal"
+  ]
   }
 ];
 
@@ -89,8 +107,7 @@ export default function FeaturesSection() {
         >
           <h2 className="section-title">Our Technical Solution</h2>
           <p className="text-lg text-gray-700">
-            Our IoT platform combines cutting-edge hardware and intelligent software
-            to revolutionize infrastructure monitoring and management.
+          Strideo assist is a wearable smart shoe with multiple sensing technologies helps in solving the major problems that blind face.
           </p>
         </motion.div>
 
@@ -152,7 +169,7 @@ export default function FeaturesSection() {
             transition={{ delay: 0.5, duration: 0.5 }}
           >
             <Button className="btn-primary" asChild>
-              <a href="https://github.com/username/repo" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/kowshikdontu/smartshoe" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-5 w-5" />
                 View Source on GitHub
               </a>

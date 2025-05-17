@@ -23,16 +23,12 @@ export default function Navbar() {
     )}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" className="flex items-center space-x-3">
-          <img 
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" 
-            alt="IoT Project Logo" 
-            className="h-10 w-10 rounded-full"
-          />
+
           <span className={cn(
             "font-display font-bold text-xl transition-colors duration-300",
             isScrolled ? "text-brand-800" : "text-white"
           )}>
-            IGNITE IoT
+            {/* IGNITE IoT */}
           </span>
         </a>
         

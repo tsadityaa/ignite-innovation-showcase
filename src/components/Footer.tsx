@@ -15,11 +15,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex items-center mb-6 md:mb-0">
             <img 
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" 
+              src="/i.jpg" 
               alt="IoT Project Logo" 
               className="h-10 w-10 rounded-full mr-3"
             />
-            <span className="font-display font-bold text-xl">IGNITE IoT</span>
+            <span className="font-display font-bold text-xl">Strideo Assist</span>
           </div>
           
           <div className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
@@ -37,7 +37,7 @@ export default function Footer() {
         
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/60 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} IGNITE IoT. All rights reserved.
+            &copy; {new Date().getFullYear()} Strideo Assist. All rights reserved.
           </p>
           
           <button 

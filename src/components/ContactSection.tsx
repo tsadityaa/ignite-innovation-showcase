@@ -84,32 +84,20 @@ export default function ContactSection() {
                 <div className="bg-brand-50 rounded-full p-3 mr-4">
                   <Mail className="h-5 w-5 text-brand-600" />
                 </div>
-                <span>team@ignitiot.com</span>
+                <span>frndztries@gmail.com</span>
               </a>
               
               <a href="https://github.com/username/repo" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-700 hover:text-brand-600 transition-colors">
                 <div className="bg-brand-50 rounded-full p-3 mr-4">
                   <Github className="h-5 w-5 text-brand-600" />
                 </div>
-                <span>github.com/igniteiot</span>
+                <span>https://github.com/kowshikdontu/smartshoe</span>
               </a>
               
-              <a href="https://linkedin.com/company/igniteiot" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-700 hover:text-brand-600 transition-colors">
-                <div className="bg-brand-50 rounded-full p-3 mr-4">
-                  <Linkedin className="h-5 w-5 text-brand-600" />
-                </div>
-                <span>linkedin.com/company/igniteiot</span>
-              </a>
+              
             </div>
             
-            <div className="bg-brand-50 p-6 rounded-lg">
-              <h4 className="font-semibold text-gray-900 mb-2">Location</h4>
-              <p className="text-gray-600">
-                Department of Computer Science & Engineering<br />
-                University of Technology<br />
-                Innovation Park, Tech City
-              </p>
-            </div>
+            
           </div>
           
           <div>

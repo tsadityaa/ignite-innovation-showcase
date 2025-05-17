@@ -6,45 +6,46 @@ import { cn } from '@/lib/utils';
 
 const team = [
   {
-    name: "Alex Johnson",
-    role: "Team Lead & Hardware Engineer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+    name: "kowshik Dontu",
+    
+    image: "/kowshik.jpg",
     social: {
-      linkedin: "#",
-      github: "#",
-      email: "mailto:alex@example.com"
+      linkedin: "https://www.linkedin.com/in/kowshik-dontu-2b5b462b9/",
+      github: "https://github.com/kowshikdontu",
+      email: "kowshik.22bce9556@vitapstudent.ac.in"
     }
   },
   {
-    name: "Sarah Chen",
-    role: "Software Architect",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+    name: "T.S.Aditya",
+    
+    image: "/aditya.jpg",
     social: {
-      linkedin: "#",
-      github: "#",
-      email: "mailto:sarah@example.com"
+      linkedin: "https://www.linkedin.com/in/aditya-ts-333751326/",
+      github: "https://github.com/tsadityaa",
+      email: "t.s.aditya35@gmail.com"
     }
   },
   {
-    name: "Michael Patel",
-    role: "AI/ML Specialist",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+    name: "Jyesta Satya Priya",
+    
+    image: "/satya.jpg",
     social: {
-      linkedin: "#",
-      github: "#",
-      email: "mailto:michael@example.com"
+      linkedin: "https://www.linkedin.com/in/satya-priya-jyesta-066362276/",
+      github: "https://github.com/satya102304",
+      email: "satyapriya.22bce8445@vitapstudent.ac.in"
     }
   },
   {
-    name: "Jessica Williams",
-    role: "Business Development",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+    name: "Durgam Moksha sree",
+    
+    image: "/moksha.jpg",
     social: {
-      linkedin: "#",
-      github: "#",
-      email: "mailto:jessica@example.com"
+      linkedin: "https://www.linkedin.com/in/moksha-sree-043657258/",
+      github: "https://github.com/Mokshasree2406",
+      email: "mokshasree.22bce9979@vitapstudent.ac.in"
     }
   }
+  
 ];
 
 export default function TeamSection() {
@@ -138,7 +139,7 @@ export default function TeamSection() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-brand-600 font-medium">{member.role}</p>
+                
               </div>
             </motion.div>
           ))}
